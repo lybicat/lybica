@@ -1,0 +1,9 @@
+[submodule "lybica-runner"]
+	path = lybica-runner
+	url = ../lybica-runner.git
+[submodule "lybica-web"]
+	path = lybica-web
+	url = ../lybica-web.git
+[submodule "lybica-platform"]
+	path = lybica-platform
+	url = ../lybica-platform.git
