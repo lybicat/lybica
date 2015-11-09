@@ -13,9 +13,6 @@ clean:
 	@echo cleaning...
 
 deploy:
-	@echo update submodules...
-	git submodule update
-	git submodule foreach git pull origin master
 	@echo deploy lybica-platform
 	cd lybica-platform
 	npm install
