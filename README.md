@@ -50,7 +50,7 @@ The application architecture is illustrated as below:
 #### lybica-web
 
 1. Compile static resources
-  ```sh
+  ```
   git clone https://github.com/lybicat/lybica-web.git
   cd lybica-web
   npm install
