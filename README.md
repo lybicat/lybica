@@ -90,6 +90,7 @@ The application architecture is illustrated as below:
 1. Start service (one of the below 2 solutions)
   * `node app.js`
   * use `pm2`
+
     ```
     npm install pm2 -g
     pm2 start -i 1 --name "api" app.js
