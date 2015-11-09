@@ -50,33 +50,33 @@ The application architecture is illustrated as below:
 #### lybica-web
 
 1. Compile static resources
-```sh
-git clone https://github.com/lybicat/lybica-web.git
-cd lybica-web
-npm install
-npm run build
-```
+  ```sh
+  git clone https://github.com/lybicat/lybica-web.git
+  cd lybica-web
+  npm install
+  npm run build
+  ```
 1. Configure nginx, below is an example:
-```
-server {
-	listen 80 default_server;
-	listen [::]:80 default_server ipv6only=on;
+  ```
+  server {
+  	listen 80 default_server;
+  	listen [::]:80 default_server ipv6only=on;
 
-	root /home/zhang/workspace/lybica-web/dist;
-	index index.html index.htm;
+  	root /home/zhang/workspace/lybica-web/dist;
+  	index index.html index.htm;
 
-	server_name localhost;
+  	server_name localhost;
 
-	location / {
-		try_files $uri $uri/ =404;
-	}
+  	location / {
+  		try_files $uri $uri/ =404;
+  	}
 
-  # for API service
-	location /api {
-		proxy_pass http://127.0.0.1:3000;    
-	}
-}
-```
+    # for API service
+  	location /api {
+  		proxy_pass http://127.0.0.1:3000;    
+  	}
+  }
+  ```
 1. Replace `/etc/nginx/conf.d/sites-enabled/default` with your nginx configuration
 1. Restart nginx
 1. Open http://127.0.0.1 to check
