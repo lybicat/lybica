@@ -8,7 +8,9 @@
 			- [lybica-web](#lybica-web)
 			- [lybica-platform](#lybica-platform)
 			- [lybica-runner](#lybica-runner)
+
 <!-- /TOC -->
+
 # Lybica
 
 `Lybica` is platform designed for large software testing and delivery.
