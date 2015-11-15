@@ -10,3 +10,6 @@
 [submodule "lybica-hdfs-viewer"]
 	path = lybica-hdfs-viewer
 	url = ../lybica-hdfs-viewer.git
+[submodule "lybica-agent"]
+	path = lybica-agent
+	url = ../lybica-agent.git
