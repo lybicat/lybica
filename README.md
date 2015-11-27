@@ -8,6 +8,8 @@
 			- [lybica-web](#lybica-web)
 			- [lybica-platform](#lybica-platform)
 			- [lybica-runner](#lybica-runner)
+			- [lybica-agent](#lybica-agent)
+			- [lybica-hdfs-viewer](#lybica-hdfs-viewer)
 
 <!-- /TOC -->
 
