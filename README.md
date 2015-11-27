@@ -38,6 +38,8 @@ The application architecture is illustrated as below:
 ├── lybica-platform
 ├── lybica-runner
 ├── lybica-web
+├── lybica-agent
+├── lybica-hdfs-viewer
 └── ptest
 └── Makefile
 ```
@@ -48,6 +50,8 @@ The application architecture is illustrated as below:
 1. `lybica-platform` is the submodule of API provider Service.
 1. `lybica-web` is the submodule of web UI service.
 1. `lybica-runner` is the submodule of task execution scripts.
+1. `lybica-agent` is the agent service that running on the execution node.
+1. `lybica-hdfs-viewer` is the hdfs file viewer service that provide accessing zip file on HDFS on fly.
 
 ## Deployment
 
@@ -87,8 +91,23 @@ The application architecture is illustrated as below:
 
     # for API service
   	location /api {
-  		proxy_pass http://127.0.0.1:3000;    
+  		proxy_pass http://127.0.0.1:3000;
   	}
+
+    # for HDFS viewer
+	location /hdfs {
+		proxy_pass http://127.0.0.1:3001;
+	}
+
+    # for websocket
+	location /socket.io {
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $host;
+        proxy_http_version 1.1;
+        proxy_pass http://127.0.0.1:3000;
+	}
   }
   ```
 1. Replace `/etc/nginx/conf.d/sites-enabled/default` with your nginx configuration
@@ -116,3 +135,23 @@ The application architecture is illustrated as below:
 1. `export LYBICA_API_URL=http://127.0.0.1/api`
 1. `export PYTHONPATH=$PWD/lybica-runner/src:$PYTHONPATH`
 1. `python -m lybica`
+
+#### lybica-agent
+
+1. `git clone https://github.com/lybicat/lybica-agent.git`
+1. `cd lybica-agent`
+1. `npm install`
+1. set socket.io server like `export LYBICA_SOCKET_URL=http://127.0.0.1:3000`, defautly it will use "http://127.0.0.1:3000"
+1. `node app.js`
+
+#### lybica-hdfs-viewer
+
+1. `git clone https://github.com/lybicat/lybica-hdfs-viewer.git`
+1. `cd lybica-hdfs-viewer`
+1. `npm install`
+1. change env variables if required:
+    * HDFS_USER ($USER in default)
+    * HDFS_PORT (50070 in default)
+    * HDFS_HOST (localhost in default)
+1. `node app.js`
+
