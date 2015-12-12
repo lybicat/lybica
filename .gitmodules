@@ -1,6 +1,3 @@
-[submodule "lybica-runner"]
-	path = lybica-runner
-	url = ../lybica-runner.git
 [submodule "lybica-web"]
 	path = lybica-web
 	url = ../lybica-web.git
@@ -10,6 +7,3 @@
 [submodule "lybica-hdfs-viewer"]
 	path = lybica-hdfs-viewer
 	url = ../lybica-hdfs-viewer.git
-[submodule "lybica-agent"]
-	path = lybica-agent
-	url = ../lybica-agent.git
