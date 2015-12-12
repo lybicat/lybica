@@ -31,29 +31,14 @@ The application architecture is illustrated as below:
 1. Some other services like centralized lock service (optional).
 1. The huge logs generated during tasks will be saved with `File Service`, it may provide HDFS backed to store, the `File Service` will communicate with Hadoop clusters.
 
-## File Tree
+## Projects
 
-```
-.
-├── assets
-├── atest
-├── lybica-platform
-├── lybica-runner
-├── lybica-web
-├── lybica-agent
-├── lybica-hdfs-viewer
-└── ptest
-└── Makefile
-```
-
-1. `Makefile` is the entry point of atest, ptest and deployment.
-1. `atest` contains acceptance test cases.
-1. `ptest` contains performance test cases.
 1. `lybica-platform` is the submodule of API provider Service.
 1. `lybica-web` is the submodule of web UI service.
 1. `lybica-runner` is the submodule of task execution scripts.
 1. `lybica-agent` is the agent service that running on the execution node.
 1. `lybica-hdfs-viewer` is the hdfs file viewer service that provide accessing zip file on HDFS on fly.
+1. `lybica` is the parent project of `lybica-platform` and `lybica-web`, also includes acceptance and performance test cases.
 
 ## Deployment
 
