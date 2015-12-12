@@ -4,6 +4,3 @@
 [submodule "lybica-platform"]
 	path = lybica-platform
 	url = ../lybica-platform.git
-[submodule "lybica-hdfs-viewer"]
-	path = lybica-hdfs-viewer
-	url = ../lybica-hdfs-viewer.git
