@@ -14,6 +14,10 @@ RUN apt-get update
 RUN apt-get install -y mongodb-org
 # install nginx
 RUN apt-get install -y nginx
-# TODO update nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
-CMD pm2 list
+# start all services command
+COPY docker-startall.sh /usr/bin/startall
+
+EXPOSE 80
+CMD ["startall"]
